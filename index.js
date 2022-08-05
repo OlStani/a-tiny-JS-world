@@ -1,31 +1,36 @@
-/* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
-   Complete the below for code reviewers' convenience:
+const dog = {
+   name: 'Bob',
+   gender: 'male',
+   legs: 4,
+   hands: 0,
+   saying: 'woof!'
+}
 
-   Code repository: _put repo URL here_
-   Web app: _put project's github pages URL here_
-   */
+const cat = {
+   name: 'Kitty',
+   gender: 'female',
+   legs: 4,
+   hands: 0,
+   saying: 'meow!'
+}
 
-// ======== OBJECTS DEFINITIONS ========
-// Define your objects here
+const woman = {
+   name: 'Sara',
+   gender: 'male',
+   legs: 2,
+   hands: 2,
+   saying: 'Hello!'
+}
 
+const man = {
+   name: 'Mario',
+   gender: 'male',
+   legs: 2,
+   hands: 2,
+   saying: 'Hi!'
+}
 
-// ======== OUTPUT ========
-/* Use print(message) for output.
-   Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
+const inhabitants = [cat, dog, woman, man]
+const arrForPrint = inhabitants.map(({name, gender, legs, hands,saying}) => [`${name}; ${gender}; ${legs}; ${hands}; ${saying}`])
 
-   Message can contain HTML markup. You may also tweak index.html and/or styles.css.
-   However, please, REFRAIN from improving visuals at least until your code is reviewed
-   so code reviewers might focus on a single file that is index.js.
-   */
-
-/* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
-
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
-
-
+arrForPrint.forEach(e=> print(e))
