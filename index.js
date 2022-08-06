@@ -52,9 +52,6 @@ const inhabitants = [cat, dog, woman, catWoman, man]
 
 // inhabitants.forEach(inhabitant => print(inhabitantsKeys.map(key => inhabitant[key]).join(';')))
 
-
 const inhabitantsInformation = inhabitants.map(({name, gender, legs, hands, saying, friends}) => [name, gender, legs, hands, saying, friends].join(';'))
-
-
 
 inhabitantsInformation.forEach(inhabitant => print(inhabitant))
