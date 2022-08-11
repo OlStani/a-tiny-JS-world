@@ -1,57 +1,42 @@
-const dog = {
-   name: 'Bob',
-   gender: 'male',
-   legs: 4,
-   hands: 0,
-   saying: 'woof!'
+class Inhabitants {
+   constructor(name, gender, legs, saying) {
+      this.name = name;
+      this.gender = gender;
+      this.legs = legs;
+      this.saying = saying
+   }
+
+   prepareToPrint() {
+      return [this.name, this.gender, this.legs, this.saying].join(';')
+   }
 }
 
-const cat = {
-   name: 'Kitty',
-   gender: 'female',
-   legs: 4,
-   hands: 0,
-   saying: 'meow!'
+class People extends Inhabitants {
+   constructor(name, gender, legs, hands, saying) {
+      super(name, gender, legs, saying)
+      this.hands = hands
+   }
+   prepareToPrint() {
+      return [this.name, this.gender, this.legs, this.hands, this.saying].join(';')
+   }
 }
 
-const woman = {
-   name: 'Sara',
-   gender: 'female',
-   legs: 2,
-   hands: 2,
-   saying: 'Hello!'
+class PeopleWithFriends extends People {
+   constructor(name, gender, legs, hands, saying, friends) {
+      super(name, gender, legs, hands, saying)
+      this.friends = friends
+   }
+   prepareToPrint() {
+      return [this.name, this.gender, this.legs, this.hands, this.saying, this.friends].join(';')
+   }
 }
 
-const catWoman = {
-   name: 'Bella',
-   gender: 'female',
-   legs: 2,
-   hands: 2,
-   saying: `${cat.saying}`
-}
-
-const man = {
-   name: 'Mario',
-   gender: 'male',
-   legs: 2,
-   hands: 2,
-   saying: 'Hi!',
-   friends:['Bob','Tom','Eva']
-}
+const dog = new Inhabitants('Bob', 'male', 4, 'woof!')
+const cat = new Inhabitants('Kitty', 'female', 4, 'meow!')
+const woman = new People('Sara', 'female', 2, 2, 'Hello!')
+const catWoman = new People('Bella', 'female', 2, 2, `${cat.saying}`)
+const man = new PeopleWithFriends('Mario', 'male', 2, 2, 'Hi!', ['Bob', 'Tom', 'Eva'])
 
 const inhabitants = [cat, dog, woman, catWoman, man]
 
-// const inhabitantsKeys = [
-//    "name",
-//    "gender",
-//    "legs",
-//    "hands",
-//    "saying",
-//    "friends"
-// ];
-
-// inhabitants.forEach(inhabitant => print(inhabitantsKeys.map(key => inhabitant[key]).join(';')))
-
-const inhabitantsInformation = inhabitants.map(({name, gender, legs, hands, saying, friends}) => [name, gender, legs, hands, saying, friends].join(';'))
-
-inhabitantsInformation.forEach(inhabitant => print(inhabitant))
+inhabitants.forEach(inhabitant => print(inhabitant.prepareToPrint()))
