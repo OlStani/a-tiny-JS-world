@@ -13,12 +13,12 @@ class Inhabitant {
 
 class Person extends Inhabitant {
    constructor(name, gender, legs, saying, hands, friends) {
-      super(name, gender, legs, saying)
+      super('human', name, gender, legs, saying)
       this.hands = hands
       this.friends = friends || []
    }
    prepareToPrint() {
-      return 'human; ' + super.prepareToPrint() + [this.hands, this.friends.join(', ')].join('; ')
+      return super.prepareToPrint() + '; ' + [this.hands, this.friends.join(', ')].join('; ')
    }
 }
 
